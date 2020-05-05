@@ -37,7 +37,6 @@ require_once("lib.php");
 require_once($CFG->libdir.'/enrollib.php');
 require_once('../../lib/classes/user.php');
 
-
 define('COMMERCE_PAGSEGURO_STATUS_AWAITING', 1);
 define('COMMERCE_PAGSEGURO_STATUS_IN_ANALYSIS', 2);
 define('COMMERCE_PAGSEGURO_STATUS_PAID', 3);
@@ -253,7 +252,7 @@ function pagseguro_handle_transaction($transaction_xml, $redirect = true) {
         $a->profileurl = new moodle_url('/user/view.php', array('id' => $user->id));
 
         if ($plugin->get_config('mailfromsupport') == 1) {
-            $userfrom = get_support_user();
+            $userfrom = core_user::get_support_user();
         }else {
            $userfrom = array_shift($teachers);
         }
