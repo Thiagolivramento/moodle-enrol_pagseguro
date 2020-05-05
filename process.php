@@ -253,7 +253,7 @@ function pagseguro_handle_transaction($transaction_xml, $redirect = true) {
 
         if ($plugin->get_config('mailfromsupport') == 1) {
             $userfrom = core_user::get_support_user();
-        }else {
+        } else {
            $userfrom = array_shift($teachers);
         }
         
